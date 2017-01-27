@@ -16,4 +16,16 @@ const approve = (apiOptions, fullname) => {
   return apiRequest(apiOptions, 'POST', 'api/approve', { body, type: 'form' });
 }
 
-export default { remove, approve }
+const markNSFW = (apiOptions, id) => {
+  // Mark a link as NSFW
+  const body = { id };
+  return apiRequest(apiOptions, 'POST', 'api/marknsfw', { body, type: 'form' });
+}
+
+const unmarkNSFW = (apiOptions, id) => {
+  // Unmark a link as NSFW
+  const body = { id };
+  return apiRequest(apiOptions, 'POST', 'api/unmarknsfw', { body, type: 'form' });
+}
+
+export default { remove, approve, markNSFW, unmarkNSFW }
